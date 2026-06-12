@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Marcos ❤️ Yasmim</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    background:#111;
+    color:white;
+    font-family:Arial, sans-serif;
+    text-align:center;
+}
+
+#inicio{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.coracao{
+    font-size:100px;
+    cursor:pointer;
+    animation:pulsar 1s infinite;
+}
+
+@keyframes pulsar{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+}
+
+#conteudo{
+    display:none;
+    padding:20px;
+}
+
+h1{
+    color:#ff4d6d;
+}
+
+#contador{
+    font-size:22px;
+    margin:20px 0;
+    line-height:1.5;
+}
+
+.galeria{
+    margin-top:20px;
+}
+
+.galeria img{
+    width:95%;
+    max-width:400px;
+    border-radius:15px;
+    box-shadow: 0 0 15px rgba(255,77,109,0.5);
+}
+
+.mensagem{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+    padding:20px;
+}
+
+.rodape{
+    margin-top:30px;
+    color:#ff4d6d;
+    font-size:20px;
+}
+
+.botao-musica{
+    background:#1DB954;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    margin:20px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div id="inicio">
+    <h1>Uma surpresa para Yasmim ❤️</h1>
+
+    <div class="coracao" onclick="iniciar()">
+        ❤️
+    </div>
+
+    <p>Clique no coração, meu amor</p>
+</div>
+
+<div id="conteudo">
+
+    <h1>Marcos ❤️ Yasmim</h1>
+
+    <div id="contador"></div>
+
+    <button class="botao-musica" onclick="abrirSpotify()">
+        🎵 Ouvir nossa playlist
+    </button>
+
+    <div class="galeria">
+        <img id="foto" src="foto1.jpg.jpeg">
+    </div>
+
+    <div class="mensagem">
+
+<h2>Para minha eterna namorada ❤️</h2>
+
+<p>
+Desde o dia 30 de novembro de 2018, você se tornou a melhor parte da minha vida. Em cada sorriso, cada abraço, cada passeio e cada dificuldade superada juntos, eu tive a certeza de que escolhi a pessoa certa para caminhar ao meu lado.
+</p>
+
+<p>
+Nossa história é feita de momentos simples que se tornaram inesquecíveis. Você é minha companheira, minha melhor amiga e o amor da minha vida.
+</p>
+
+<p>
+Obrigado por todos esses anos ao meu lado. Que Deus continue abençoando nossa relação e que possamos viver muitos outros capítulos dessa linda história.
+</p>
+
+<p>
+Eu te amo infinitamente. ❤️
+</p>
+
+<p>
+<strong>Com todo o meu amor,</strong><br>
+<strong>Marcos ❤️</strong>
+</p>
+
+</div>
+
+<div class="rodape">
+    Para sempre nós ❤️
+</div>
+
+</div>
+
+<script>
+
+function iniciar(){
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+}
+
+function abrirSpotify(){
+    window.open("https://open.spotify.com/search/Nossa%20Quimica%20Bonde%20da%20Estrada", "_blank");
+}
+
+const dataInicio = new Date("2018-11-30T00:00:00");
+
+function atualizarContador(){
+
+    const agora = new Date();
+
+    let diferenca = agora - dataInicio;
+
+    let segundos = Math.floor(diferenca / 1000);
+
+    let anos = Math.floor(segundos / (365.25*24*60*60));
+    segundos -= Math.floor(anos * (365.25*24*60*60));
+
+    let dias = Math.floor(segundos / (24*60*60));
+    segundos -= dias * 24 * 60 * 60;
+
+    let horas = Math.floor(segundos / 3600);
+    segundos -= horas * 3600;
+
+    let minutos = Math.floor(segundos / 60);
+    segundos -= minutos * 60;
+
+    document.getElementById("contador").innerHTML =
+        anos + " anos, " +
+        dias + " dias, " +
+        horas + " horas, " +
+        minutos + " minutos e " +
+        segundos + " segundos juntos ❤️";
+}
+
+setInterval(atualizarContador,1000);
+atualizarContador();
+
+const fotos = [
+    "foto1.jpg.jpeg",
+    "foto2.jpg.jpeg",
+    "foto3.jpg.jpeg",
+    "foto4.jpg.jpeg",
+    "foto5.jpg.jpeg",
+    "foto6.jpg.jpeg",
+    "foto7.jpg.jpeg"
+];
+
+let indice = 0;
+
+setInterval(function(){
+
+    indice++;
+
+    if(indice >= fotos.length){
+        indice = 0;
+    }
+
+    document.getElementById("foto").src = fotos[indice];
+
+},3000);
+
+</script>
+
+</body>
+</html>
